@@ -36,7 +36,7 @@ namespace NewScripts
         }
 
         public void RestartGame()
-        {
+        {            
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 

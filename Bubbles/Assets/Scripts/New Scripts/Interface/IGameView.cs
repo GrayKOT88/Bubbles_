@@ -6,6 +6,6 @@
         void ShowGameOver();
         void HideGameOver();
         void ShowTitleScreen();
-        void HideTitleScreen();
+        void HideTitleScreen();        
     }
 }

@@ -13,7 +13,7 @@ namespace NewScripts
         public event Action<bool> OnGameStateChanged;
 
         private BubblePool _bubblePool;
-
+                
         [Inject]
         public void Construct(BubblePool bubblePool)
         {
@@ -29,7 +29,7 @@ namespace NewScripts
         public void SetGameActive(bool isActive)
         {
             IsGameActive = isActive;
-            OnGameStateChanged?.Invoke(isActive);
+            OnGameStateChanged?.Invoke(isActive);           
         }
 
         public void SetDifficulty(int difficulty)
@@ -39,7 +39,7 @@ namespace NewScripts
 
         public void ReturnBubble(Bubbles bubble)
         {
-            _bubblePool.ReturnBubble(bubble);
+            _bubblePool.ReturnBubble(bubble);           
         }
     }
 }

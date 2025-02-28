@@ -23,31 +23,33 @@ namespace NewScripts
 
         private void Start()
         {          
-            DifficultyButton.OnDifficultySelected += OnSpawn;
+            DifficultyButton.OnDifficultySelected += OnSpawn;            
         }
 
         private void OnSpawn(int difficulty)
         {
             _spawnRate /= difficulty;
             _cancellationTokenSource = new CancellationTokenSource();
-            StartCoroutine(SpawnBubbles(_spawnRate, _cancellationTokenSource.Token));
-            
-        }
+            StartCoroutine(SpawnBubbles(_spawnRate, _cancellationTokenSource.Token));            
+        }        
 
         IEnumerator SpawnBubbles(float time, CancellationToken token)
         {            
             while (_gameModel.IsGameActive && !token.IsCancellationRequested)
             {
-                yield return new WaitForSeconds(time);               
-                Bubbles bubbles = _bubblePool.GetBubble();
-                bubbles.Initialize(_gameModel,_particlePool);
+                yield return new WaitForSeconds(time);
+                if(_gameModel.IsGameActive && !token.IsCancellationRequested)
+                {
+                    Bubbles bubbles = _bubblePool.GetBubble();
+                    bubbles.Initialize(_gameModel,_particlePool);
+                }
             }
         }
 
         private void OnDestroy()
         {
             _cancellationTokenSource?.Cancel();
-            DifficultyButton.OnDifficultySelected -= OnSpawn;
+            DifficultyButton.OnDifficultySelected -= OnSpawn;            
         }
     }
 }

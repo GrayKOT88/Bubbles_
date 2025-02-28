@@ -18,10 +18,12 @@ namespace NewScripts
 
             var movement = gameObject.GetComponent<BubbleMovement>();
             var input = gameObject.GetComponent<BubbleInput>();
+            var burst = gameObject.GetComponent<BubbleBurst>();
             var collision = gameObject.GetComponent<BubbleCollision>();
 
             movement.Initialize(_gameConfig);
-            input.Initialize(_gameModel, _particlePool, _pointValue);
+            input.Initialize(_gameModel);
+            burst.Initialize(_gameModel, _particlePool, _pointValue);
             collision.Initialize(_gameModel);
         }
     }

@@ -8,9 +8,7 @@ namespace NewScripts
     {
         [SerializeField] private TextMeshProUGUI _scoreText;        
         [SerializeField] private GameObject _titleScreen;
-        [SerializeField] private GameObject _gameOver;
-
-        private Tween _animation;
+        [SerializeField] private GameObject _gameOver;        
 
         public void UpdateScore(int score)
         {
@@ -22,7 +20,7 @@ namespace NewScripts
         {
             _gameOver.gameObject.SetActive(true);
             _gameOver.transform.localScale = Vector3.zero;
-            _animation = _gameOver.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);           
+            _gameOver.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);           
         }
 
         public void HideGameOver()

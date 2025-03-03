@@ -21,8 +21,7 @@ namespace NewScripts
         {
             if (isActive)
             {
-                _gameView.HideTitleScreen();
-                _gameView.HideGameOver();
+                _gameView.HideTitleScreen();                
             }
             else
             {
@@ -35,8 +34,14 @@ namespace NewScripts
             _gameView.UpdateScore(score);
         }
 
-        public void RestartGame()
-        {            
+        public void RestartGameButton()
+        {
+            _gameView.HideGameOver();
+            Invoke("RestartGame",0.5f);
+        }
+
+        private void RestartGame()
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 

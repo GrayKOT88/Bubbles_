@@ -6,8 +6,7 @@ namespace NewScripts
     public class GameModel : IGameModel
     {
         public int Score { get; private set; }
-        public bool IsGameActive { get; private set; }
-        public int DifficultyLevel { get; private set; }
+        public bool IsGameActive { get; private set; }       
 
         public event Action<int> OnScoreChanged;
         public event Action<bool> OnGameStateChanged;
@@ -30,11 +29,6 @@ namespace NewScripts
         {
             IsGameActive = isActive;
             OnGameStateChanged?.Invoke(isActive);           
-        }
-
-        public void SetDifficulty(int difficulty)
-        {
-            DifficultyLevel = difficulty;
         }
 
         public void ReturnBubble(Bubbles bubble)

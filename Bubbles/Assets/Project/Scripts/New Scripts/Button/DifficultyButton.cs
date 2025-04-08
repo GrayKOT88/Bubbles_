@@ -21,8 +21,7 @@ namespace NewScripts
 
         private void OnDifficultyButtonClicked()
         {
-            _gameModel.SetGameActive(true);
-            Debug.Log(gameObject.name + " was clicked " + _selectedDifficulty + _gameModel.IsGameActive);
+            _gameModel.SetGameActive(true);            
             OnDifficultySelected?.Invoke(_selectedDifficulty);
         }
     }

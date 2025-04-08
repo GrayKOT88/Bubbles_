@@ -19,9 +19,7 @@ namespace NewScripts
         {
             for (int i = 0; i < _poolSize; i++)
             {
-                BurstEffect particle = Instantiate(_prefabParticle, transform);
-                particle.gameObject.SetActive(false);
-                _particlePool.Enqueue(particle);
+                ExpandPool();
             }
         }
 

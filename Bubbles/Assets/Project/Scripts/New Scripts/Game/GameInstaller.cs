@@ -8,13 +8,15 @@ namespace NewScripts
         [SerializeField] private BubblePool _bubblePool;
         [SerializeField] private ParticlePool _particlePool;       
         [SerializeField] private GameView _gameView;
+        [SerializeField] private AudioService _audioService; // Добавьте ссылку на сервис
 
         public override void InstallBindings()
         {
             Container.Bind<BubblePool>().FromInstance(_bubblePool).AsSingle();
             Container.Bind<ParticlePool>().FromInstance(_particlePool).AsSingle();
             Container.Bind<IGameModel>().To<GameModel>().AsSingle();
-            Container.Bind<IGameView>().FromInstance(_gameView).AsSingle();
+            Container.Bind<IGameView>().FromInstance(_gameView).AsSingle();           
+            Container.Bind<IAudioService>().FromInstance(_audioService).AsSingle(); // Регистрация сервиса            
         }
     }
 }

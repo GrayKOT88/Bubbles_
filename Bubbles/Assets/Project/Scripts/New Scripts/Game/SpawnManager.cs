@@ -7,7 +7,8 @@ namespace NewScripts
 {
     public class SpawnManager : MonoBehaviour
     {
-        [Inject] private IGameModel _gameModel;        
+        [Inject] private IGameModel _gameModel;
+        [Inject] private IAudioService _audioService;
         private ParticlePool _particlePool;
         private BubblePool _bubblePool;
         private float _spawnRate = 1f;
@@ -41,7 +42,7 @@ namespace NewScripts
                 if(_gameModel.IsGameActive && !token.IsCancellationRequested)
                 {
                     Bubbles bubbles = _bubblePool.GetBubble();
-                    bubbles.Initialize(_gameModel,_particlePool);
+                    bubbles.Initialize(_audioService,_gameModel,_particlePool);
                 }
             }
         }

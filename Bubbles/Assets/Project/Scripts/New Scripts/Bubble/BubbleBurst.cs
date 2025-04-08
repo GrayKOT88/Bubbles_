@@ -4,17 +4,19 @@ namespace NewScripts
 {
     public class BubbleBurst : MonoBehaviour
     {
+        private IAudioService _audioService;
         private IGameModel _gameModel;                
         private ParticlePool _particlePool;
         private int _pointValue;
 
         private void Start()
-        {
-            _gameModel.OnGameStateChanged += BursrAllBubbles;
+        {            
+            _gameModel.OnGameStateChanged += BursrAllBubbles;            
         }
 
-        public void Initialize(IGameModel gameModel, ParticlePool particlePool, int pointValue)
+        public void Initialize(IAudioService audioService, IGameModel gameModel, ParticlePool particlePool, int pointValue)
         {
+            _audioService = audioService;
             _gameModel = gameModel;
             _particlePool = particlePool;
             _pointValue = pointValue;
@@ -30,8 +32,9 @@ namespace NewScripts
         {
             BurstEffect effect = _particlePool.GetParticle();
             effect.Initialize(_particlePool);
-            effect.transform.position = transform.position;            
-            
+            effect.transform.position = transform.position;
+
+            _audioService?.PlaySound("BubbleBurst"); // Воспроизведение звука           
             _gameModel.ReturnBubble(this.GetComponent<Bubbles>());
         }
 

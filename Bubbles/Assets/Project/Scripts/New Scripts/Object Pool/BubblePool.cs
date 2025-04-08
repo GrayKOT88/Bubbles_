@@ -6,7 +6,7 @@ namespace NewScripts
     public class BubblePool : MonoBehaviour
     {
         [SerializeField] private Bubbles _prefabBubbles;
-        [SerializeField] private int _poolSize = 5;
+        [SerializeField] private int _poolSize = 10;
 
         private Queue<Bubbles> _bubblesPool = new Queue<Bubbles>();
 
@@ -19,9 +19,7 @@ namespace NewScripts
         {
             for (int i = 0; i < _poolSize; i++)
             {
-                Bubbles bubble = Instantiate(_prefabBubbles, transform);
-                bubble.gameObject.SetActive(false);
-                _bubblesPool.Enqueue(bubble);
+                ExpandPool();
             }
         }
 
@@ -46,6 +44,8 @@ namespace NewScripts
         private void ExpandPool()
         {
             Bubbles bubble = Instantiate(_prefabBubbles, transform);
+            bubble.SetRandomSize();
+            bubble.SetRandomColor();
             bubble.gameObject.SetActive(false);
             _bubblesPool.Enqueue(bubble);
         }

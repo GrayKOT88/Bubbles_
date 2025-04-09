@@ -14,8 +14,7 @@ namespace NewScripts
         private void OnTriggerEnter(Collider other)
         {
             _gameModel.ReturnBubble(this.GetComponent<Bubbles>());            
-            _gameModel.SetGameActive(false);
-            
+            _gameModel.SetGameActive(false);            
         }
     }
 }

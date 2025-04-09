@@ -11,7 +11,7 @@ namespace NewScripts
 
         private void Start()
         {            
-            _gameModel.OnGameStateChanged += BursrAllBubbles;            
+            _gameModel.OnGameStateChanged += BurstAllBubbles;            
         }
 
         public void Initialize(IAudioService audioService, IGameModel gameModel, ParticlePool particlePool, int pointValue)
@@ -38,7 +38,7 @@ namespace NewScripts
             _gameModel.ReturnBubble(this.GetComponent<Bubbles>());
         }
 
-        private void BursrAllBubbles(bool isActive)
+        private void BurstAllBubbles(bool isActive)
         {
             if (!isActive)
             {

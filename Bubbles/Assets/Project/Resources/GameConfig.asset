@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a56f02e4ba1e34abd874ea5ec72290, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  _minSpeed: 13
-  _maxSpeed: 18
+  _minSpeed: 10
+  _maxSpeed: 15
   _xRange: 4
   _ySpawnPos: 0
   _minSize: 1.5
@@ -25,3 +25,5 @@ MonoBehaviour:
   - {r: 0.5254902, g: 0.76862746, b: 0.9019608, a: 0.19607843}
   - {r: 0.77254903, g: 0.7529412, b: 0.9019608, a: 0.19607843}
   - {r: 0.39215687, g: 0.78431374, b: 1, a: 0.19607843}
+  _fallSpeed: 3
+  _swayForce: 0.6

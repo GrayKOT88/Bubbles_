@@ -12,7 +12,9 @@ namespace NewScripts
 
         public void UpdateScore(int score)
         {
-            _scoreText.text = "Score: " + score;
+            _scoreText.text = "" + score;
+            _scoreText.transform.DOKill(); // Останавливаем текущую анимацию
+            _scoreText.transform.localScale = Vector3.one; // Сбрасываем масштаб на 1,1,1
             _scoreText.transform.DOPunchScale(new Vector3(1.1f, 1.1f, 1.1f), 0.3f);
         }
 

@@ -18,7 +18,7 @@ namespace NewScripts
 
         private void FixedUpdate()
         {            
-            if (_rigidbody.velocity.y < 0) // Мягкая кастомная гравитация
+            if (_rigidbody.velocity.y <= 0.1) // Мягкая кастомная гравитация
             {
                 _rigidbody.AddForce(Vector3.down * _gameConfig.FallSpeed, ForceMode.Acceleration);
             }

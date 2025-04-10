@@ -8,12 +8,12 @@ namespace NewScripts
     {        
         [Inject] private IGameModel _gameModel;
         [Inject] private IGameView _gameView;
-       
+        [Inject] private ILeaderboardService _leaderboard;
+
         private void Start()
         {            
             _gameModel.OnGameStateChanged += OnGameStateChanged;
             _gameModel.OnScoreChanged += OnScoreChanged;
-
             _gameView.ShowTitleScreen();
         }
         
@@ -25,6 +25,11 @@ namespace NewScripts
             }
             else
             {
+                // Отправляем результат только если это новый рекорд
+                if (_gameModel.Score > PlayerPrefs.GetInt("HighScore", 0))
+                {                    
+                    _leaderboard.SubmitScore(_gameModel.Score);
+                }
                 _gameView.ShowGameOver();
             }
         }

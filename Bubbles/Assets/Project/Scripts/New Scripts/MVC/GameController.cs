@@ -13,7 +13,7 @@ namespace NewScripts
         private void Start()
         {            
             _gameModel.OnGameStateChanged += OnGameStateChanged;
-            _gameModel.OnScoreChanged += OnScoreChanged;
+            _gameModel.OnScoreChanged += OnScoreChanged;            
             _gameView.ShowTitleScreen();
         }
         
@@ -41,13 +41,7 @@ namespace NewScripts
 
         public void RestartGameButton()
         {
-            _gameView.HideGameOver();
-            Invoke("RestartGame",0.5f);
-        }
-
-        private void RestartGame()
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);            
         }
 
         private void OnDestroy()

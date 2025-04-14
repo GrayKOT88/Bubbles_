@@ -24,13 +24,7 @@ namespace NewScripts
             _gameOver.transform.localScale = Vector3.zero;
             _gameOver.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);           
         }
-
-        public void HideGameOver()
-        {
-            _gameOver.transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack)
-                .OnComplete(() => _gameOver.gameObject.SetActive(false));            
-        }
-
+       
         public void ShowTitleScreen()
         {
             _titleScreen.gameObject.SetActive(true);

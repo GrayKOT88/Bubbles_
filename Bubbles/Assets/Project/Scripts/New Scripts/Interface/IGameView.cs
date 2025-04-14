@@ -3,8 +3,7 @@
     public interface IGameView
     {
         void UpdateScore(int score);
-        void ShowGameOver();
-        void HideGameOver();
+        void ShowGameOver();        
         void ShowTitleScreen();
         void HideTitleScreen();        
     }

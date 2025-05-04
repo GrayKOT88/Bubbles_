@@ -17,13 +17,6 @@ namespace NewScripts
             _scoreText.transform.localScale = Vector3.one; // Сбрасываем масштаб на 1,1,1
             _scoreText.transform.DOPunchScale(new Vector3(1.1f, 1.1f, 1.1f), 0.3f);
         }
-
-        public void ShowGameOver()
-        {
-            _gameOver.gameObject.SetActive(true);
-            _gameOver.transform.localScale = Vector3.zero;
-            _gameOver.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);           
-        }
        
         public void ShowTitleScreen()
         {
@@ -36,6 +29,19 @@ namespace NewScripts
         {            
             _titleScreen.transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack)
                 .OnComplete(() => _titleScreen.gameObject.SetActive(false));            
+        }
+
+        public void ShowGameOver()
+        {
+            _gameOver.gameObject.SetActive(true);
+            _gameOver.transform.localScale = Vector3.zero;
+            _gameOver.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);           
+        }
+
+        public void HideGameOver()
+        {
+            _gameOver.transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack)
+                .OnComplete(() => _gameOver.gameObject.SetActive(false));
         }
     }
 }
